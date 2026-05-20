@@ -9,4 +9,5 @@ spec:
     protocol: TCP
     name: http
   selector:
+    # This selector links the service to the pods managed by the Rollout
     app: rollouts-demo
