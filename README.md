@@ -60,14 +60,12 @@ Abort the rollout immediately to simulate an automated system rollback due to fa
 
 *Result: The controller instantly terminates the faulty red version and reverts 100% of the traffic back to the stable yellow version, ensuring zero downtime for the majority of users.*
 
-<img width="968" height="697" alt="Terminal output showing the failed red deployment being aborted and automatically reverted." src="https://github.com/user-attachments/assets/52287910-a2a5-4d5f-8d55-35cffdf92aac" />
+<img width="968" height="661" alt="Terminal output showing the failed red deployment being aborted and automatically reverted." src="https://github.com/user-attachments/assets/a25c9d37-6b5b-4254-8983-4d74079708ae" />
 
 *Text-version of image below.*
 ```
 root@controlplane:~$ kubectl create namespace argo-rollouts
 namespace/argo-rollouts created
-root@controlplane:~$ kubectl apply -n argo-rollouts -f https://github.com.argoproj/argo-rollouts/releases/latest/download/install.yaml
-Unable to connect to the server: dial tcp: lookup github.com.argoproj on 8.8.8.8:53: no such host
 root@controlplane:~$ kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
 customresourcedefinition.apiextensions.k8s.io/analysisruns.argoproj.io created
 customresourcedefinition.apiextensions.k8s.io/analysistemplates.argoproj.io created
