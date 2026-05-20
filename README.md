@@ -59,3 +59,5 @@ Abort the rollout immediately to simulate an automated system rollback due to fa
     kubectl argo rollouts abort rollouts-demo
 
 *Result: The controller instantly terminates the faulty red version and reverts 100% of the traffic back to the stable yellow version, ensuring zero downtime for the majority of users.*
+<img width="968" height="697" alt="Kubernetes_canary_release_simulation" src="https://github.com/user-attachments/assets/52287910-a2a5-4d5f-8d55-35cffdf92aac" />
+
