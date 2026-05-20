@@ -3,19 +3,20 @@ kind: Rollout
 metadata:
   name: rollouts-demo
 spec:
-  replicas: 5
+  replicas: 5 # The total number of identical application pods running
   strategy:
     canary:
+      # These steps define the Canary Release pipeline
       steps:
-      - setWeight: 20
-      - pause: {}
-      - setWeight: 40
-      - pause: {duration: 10}
+      - setWeight: 20 # Step 1: Route exactly 20% of the traffic to the new version
+      - pause: {}     # Step 2: Pause indefinitely. Wait for manual promotion or automatic abort.
+      - setWeight: 40 # Step 3: Shift traffic to 40%
+      - pause: {duration: 10} # Pause for 10 seconds, then automatically continue
       - setWeight: 60
       - pause: {duration: 10}
       - setWeight: 80
       - pause: {duration: 10}
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 2 # Keep the last 2 versions in memory for quick rollbacks
   selector:
     matchLabels:
       app: rollouts-demo
@@ -26,6 +27,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
+        # This is the current stable version of the application
         image: argoproj/rollouts-demo:blue
         ports:
         - name: http
