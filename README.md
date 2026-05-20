@@ -62,8 +62,8 @@ Abort the rollout immediately to simulate an automated system rollback due to fa
 
 <img width="968" height="697" alt="Terminal output showing the failed red deployment being aborted and automatically reverted." src="https://github.com/user-attachments/assets/52287910-a2a5-4d5f-8d55-35cffdf92aac" />
 
-*Text-version of image below.
-
+*Text-version of image below.*
+```
 root@controlplane:~$ kubectl create namespace argo-rollouts
 namespace/argo-rollouts created
 root@controlplane:~$ kubectl apply -n argo-rollouts -f https://github.com.argoproj/argo-rollouts/releases/latest/download/install.yaml
@@ -99,5 +99,4 @@ NAME                                       KIND        STATUS        AGE    INFO
 │     ├──□ rollouts-demo-76ddfb4f47-x68zq  Pod         ✔ Running     7m15s  ready:1/1
 │     └──□ rollouts-demo-76ddfb4f47-ldjc8  Pod         ✔ Running     4m44s  ready:1/1
 └──# revision:1                                                             
-   └──⧉ rollouts-demo-5cd66ff7ff           ReplicaSet  • ScaledDown  12m    
-*
+   └──⧉ rollouts-demo-5cd66ff7ff           ReplicaSet  • ScaledDown  12m
